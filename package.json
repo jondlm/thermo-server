@@ -1,5 +1,5 @@
 {
-  "name": "temp-server",
+  "name": "thermo-server",
   "version": "0.0.1",
   "description": "Temperature collection server",
   "main": "index.js",
