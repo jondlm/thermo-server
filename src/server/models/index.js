@@ -1,22 +1,32 @@
+/*eslint no-use-before-define:0 */
 'use strict';
 
 var bookshelf = require(appRoot + '/src/server/config/bookshelf');
 
 var SourceType = bookshelf.Model.extend({
-  tableName: 'source_type'
+  tableName: 'source_type',
+  hasTimestamps: true,
+  sources: function() {
+    return this.hasMany(Source);
+  }
 });
 
 var Source = bookshelf.Model.extend({
   tableName: 'source',
-  sourceType: function () {
-    this.hasOne(SourceType);
+  hasTimestamps: true,
+  sourceType: function() {
+    return this.belongsTo(SourceType);
+  },
+  readings: function() {
+    return this.hasMany(Reading);
   }
 });
 
 var Reading = bookshelf.Model.extend({
   tableName: 'reading',
-  source: function () {
-    this.belongsTo(Source);
+  hasTimestamps: true,
+  source: function() {
+    return this.belongsTo(Source);
   }
 });
 
