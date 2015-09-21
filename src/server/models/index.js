@@ -14,7 +14,7 @@ var SourceType = bookshelf.Model.extend({
 var Source = bookshelf.Model.extend({
   tableName: 'source',
   hasTimestamps: true,
-  sourceType: function() {
+  source_type: function() {
     return this.belongsTo(SourceType);
   },
   readings: function() {

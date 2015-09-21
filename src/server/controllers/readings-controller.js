@@ -8,7 +8,7 @@ var Boom = require('boom');
 module.exports = {
   list: function(request, reply) {
     new models.Reading()
-      .fetchAll({withRelated: ['source', 'source.sourceType']})
+      .fetchAll({withRelated: ['source', 'source.source_type']})
       .then(reply, function(err) {
         reply(Boom.badImplementation(err));
       });
