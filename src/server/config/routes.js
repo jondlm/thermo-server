@@ -34,11 +34,11 @@ module.exports = [
   // Readings routes
   // -----------------------------------
   {
-    // TODO: validate API key
     path: '/api/readings',
     method: 'POST',
     handler: readingsController.create,
     config: {
+      auth: 'token', // see the src/server/lib/token-scheme.js file for details on how this works
       validate: {
         payload: {
           temperature: Joi.number().precision(2).required()
